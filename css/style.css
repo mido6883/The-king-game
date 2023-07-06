@@ -1,0 +1,333 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    background-image: url(../images/16487728_1719635071682365_5900383689908318686_o.jpg);
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.start {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000000000;
+}
+
+.start button,
+#start-game {
+    height: 50px;
+    width: 160px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: whitesmoke;
+    background-color: orangered;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 25px;
+    transition: background-color .4s ease;
+}
+
+.start .themes {
+    width: 240px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: rgba(182, 182, 182, 0.808);
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.start .themes span {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform .4s ease;
+}
+
+.start .themes span.active {
+    transform: scale(1.2);
+}
+
+.start .themes span:hover {
+    transform: scale(1.2);
+}
+
+.start .themes span:first-of-type {
+    background-color: black;
+}
+
+.start .themes span:nth-of-type(2) {
+    background-color: rgb(7, 26, 194);
+}
+
+.start .themes span:nth-of-type(3) {
+    background-color: rgb(25, 223, 25);
+}
+
+.start .themes span:nth-of-type(4) {
+    background-color: orange;
+}
+
+.start .themes span:nth-of-type(5) {
+    background-color: purple
+}
+
+.start .themes span:nth-of-type(6) {
+    background-color: red
+}
+
+#start-game {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000000000;
+    font-size:22px;
+}
+
+#start-game.none {
+    display: none;
+}
+#start button:hover,
+#start-game:hover {
+    background-color: rgb(146, 39, 0);
+}
+
+
+.deck {
+    position: absolute;
+    width: 180px;
+    height: 260px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: black;
+    border: 4px solid white;
+    border-radius: 5px;
+}
+
+.deck.active {
+   background-color: goldenrod;
+}
+
+.deck .card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) rotateY(180deg);
+    width: 160px;
+    height: 240px;
+    transform-style: preserve-3d;
+    transition: transform .4s ease;
+}
+
+.deck .card .card-face {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    backface-visibility: hidden;
+}
+
+.deck .card .card-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.deck .card .card-face img,
+.deck .card .card-back img {
+    width: 100%;
+    height: 100%;
+}
+
+.user,
+.cpu {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 120px;
+}
+
+.cpu {
+    top: 0;
+}
+
+.user .card {
+    position: absolute;
+    top: 0;
+    width: 160px;
+    height: 240px;
+    transform-style: preserve-3d;
+    transition: transform .4s, top .4s,box-shadow .4s,left .4s ease;
+}
+
+.user .card.clicked {
+    top: -30px;
+    box-shadow:  0 0 20px 20px blue;
+}
+
+.user .card:hover {
+    top: -30px;
+    cursor: pointer;
+}
+
+.user .card .card-face {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    backface-visibility: hidden;
+}
+
+.user .card .card-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.user .card .card-face img,
+.user .card .card-back img {
+    width: 100%;
+    height: 100%;
+}
+
+.cpu .card {
+    position: absolute;
+    bottom: 0;
+    width: 160px;
+    height: 240px;
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+    transition: transform .4s, bottom .4s ease;
+}
+
+.cpu .card.fade {
+    bottom: 240px;
+}
+
+.cpu .card:hover {
+    bottom: -30px;
+}
+
+.cpu .card .card-face {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    backface-visibility: hidden;
+}
+
+.cpu .card .card-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.cpu .card .card-face img,
+.cpu .card .card-back img {
+    width: 100%;
+    height: 100%;
+}
+
+.turn {
+    position: fixed;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 250px;
+    width: 350px;
+    background-color: transparent;
+    border: 4px solid white;
+    border-radius: 10px;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 35px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    text-align: center;
+}
+
+.turn.none {
+    display: none;
+}
+
+.game-over {
+    position: fixed;
+    left: 100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    transition: left .5s ease;
+    z-index: 10000000000;
+    font-family:  cursive;
+    font-size: 40px;
+    color: white;
+}
+
+.game-over button {
+    height: 50px;
+    width: 180px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: whitesmoke;
+    background-color: orangered;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 25px;
+    transition: background-color .4s ease;
+    margin-top: 40px;
+}
+
+.game-over button:hover {
+    background-color: rgb(146, 39, 0);
+}
+
+.game-over.active {
+    left: 0;
+}
+
+
